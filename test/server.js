@@ -2,8 +2,6 @@ var request = require("request");
 var chakram = require('chakram'),
 expect = chakram.expect;
 
-var old_console1 = console;
-
 describe("post bird data", function () {
   it("returns 201 created", function () {
      var data = {"name":"gunendu","family":"dsds","continents":"Asia,dssd","visible":"true"};
