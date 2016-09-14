@@ -20,8 +20,6 @@ router.post('/birds', function(req,res,next) {
      })
   }
 
-  console.log("valid",response);
-
   BirdController.saveBird(name,family,continents,visible)
     .then(function(response) {
       return res.status(201).send({
