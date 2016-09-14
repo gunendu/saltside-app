@@ -24,7 +24,7 @@ router.post('/birds', function(req,res,next) {
 
   BirdController.saveBird(name,family,continents,visible)
     .then(function(response) {
-      return res.status(200).send({
+      return res.status(201).send({
         "status": 201,
         "result": response
       })
@@ -37,6 +37,7 @@ router.post('/birds', function(req,res,next) {
 router.get('/birds', function(req,res,next) {
   BirdController.getAllBirds()
     .then(function(response) {
+      console.log("response",response);
       return res.status(200).send({
         "status": 200,
         "result": response
