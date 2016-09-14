@@ -1,33 +1,10 @@
 var _ = require("underscore");
 
-var getInvalidParams = function (params, req) {
+var validateParams = function (params, req) {
   return _.partition(params, function(element) {
     var param = req.param(element);
     return param === undefined || param === null;
-  })[0];
-};
-
-var getExceptionsParams = function (params, req) {
-   return _.partition(params, function(element) {
-     var param = req.param(element);
-     return param!=undefined;
-   })[0];
-};
-
-var getFirstInvalidParam = function (params, req) {
-  return _.first(getInvalidParams(params, req));
-};
-
-var validateParams = function (cb) {
-  for (var key in this) {
-    if (this.hasOwnProperty(key)) {
-      /* Needs modification */
-      if (!_.isString(this[key])) {
-        cb(true, {"ok": false, "code": "2111", "message": "Mandatory field " + key + " is empty"});
-      }
-    }
-  }
-  cb(null, null);
+  })[0]
 };
 
 var createSucResp = function (result) {
@@ -54,6 +31,8 @@ var createErrResp = function (errorType, errMsgExt,debug) {
   };
 };
 
+
 module.exports = {
-  "validateParams": validateParams
+  "validateParams": validateParams,
+  "createErrResp": createErrResp,
 };

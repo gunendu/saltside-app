@@ -25,9 +25,10 @@ app.use(cookieParser());
 
 app.use(function (req, res, next) {
   console.log("http method",req.method,req.url);
+  next();
 });
 
-app.use('/user', saltside);
+app.use('/', saltside);
 
 app.use(ErrorHandler.clientErrorHandler);
 

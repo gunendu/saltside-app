@@ -1,4 +1,4 @@
-var Errors = require('saltside-core').Errors;
+var Errors = require('sd-core').Errors;
 var utils = require('../routes/utils');
 var errorCodes = require('../routes/errors');
 

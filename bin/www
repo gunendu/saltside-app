@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-var config = require('saltside_config').core;
 var app = require('../app');
 var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
-var log = require('saltside-core').Logger('express-partners');
+var log = require('sd-core').Logger('express-partners');
 
-log.info("port is",config.port);
-app.set('port', config.port);
+app.set('port', 9005);
 
 server.listen(9005);
 
